@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Sacramento&display=swap');
+
+:root {
+  color-scheme: dark;
+  --ink: #f3f7f7;
+  --muted: rgba(224, 241, 244, .78);
+  --aqua: #8cecff;
+  --teal: #175058;
+}
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body {
+  background: radial-gradient(ellipse at 50% 100%, #175058 0%, #102e3b 35%, #07121f 80%);
+  color: var(--ink);
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  user-select: none;
+  cursor: default;
+}
+.ambient-glow {
+  position: fixed; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 105%, rgba(0, 231, 221, .18), transparent 44%),
+              radial-gradient(circle at 78% 44%, rgba(51, 177, 211, .06), transparent 23%);
+  z-index: 0;
+}
+#particle-canvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.wallpaper { position: relative; z-index: 2; width: 100%; height: 100%; }
+.brand { position: absolute; top: 7.2%; left: 50%; transform: translateX(-50%); text-align: center; white-space: nowrap; }
+.name { font-family: 'Sacramento', cursive; font-size: clamp(2rem, 3.2vw, 3.4rem); letter-spacing: .02em; text-shadow: 0 0 22px rgba(140, 236, 255, .16); }
+.brand-divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 10px; }
+.brand-divider span { width: clamp(40px, 5.4vw, 90px); height: 1px; background: linear-gradient(90deg, transparent, #9cecff); }
+.brand-divider span:last-child { transform: rotate(180deg); }
+.brand-divider svg { width: 30px; height: 24px; fill: rgba(140, 236, 255, .75); stroke: #9cecff; stroke-width: 1.2; }
+.clock-block { position: absolute; top: 31%; left: 50%; transform: translate(-50%, -2%); width: 90%; text-align: center; }
+.clock { font-size: clamp(4rem, 8vw, 8.5rem); font-weight: 300; letter-spacing: .075em; line-height: 1.1; font-variant-numeric: tabular-nums; text-shadow: 0 0 30px rgba(185, 241, 255, .08); }
+.date { margin-top: 18px; font-size: clamp(.8rem, 1.5vw, 1.35rem); letter-spacing: .48em; padding-left: .48em; color: #f0f7f8; font-weight: 400; }
+.weekday { margin-top: 22px; font-size: clamp(.65rem, 1vw, .9rem); letter-spacing: .68em; padding-left: .68em; color: var(--muted); }
+.quote-block { position: absolute; bottom: 10.3%; left: 50%; transform: translateX(-50%); width: min(88%, 850px); text-align: center; }
+.quote { margin: 0; font-size: clamp(.85rem, 1.35vw, 1.25rem); letter-spacing: .09em; line-height: 1.6; color: #f2f8f9; transition: opacity .5s, transform .5s; }
+.quote.changing { opacity: 0; transform: translateY(8px); }
+.quote-author { margin: 13px 0 0; font-size: clamp(.58rem, .8vw, .75rem); letter-spacing: .38em; padding-left: .38em; color: rgba(235, 249, 251, .9); }
+.quote-progress { width: 84px; height: 1px; margin: 20px auto 0; background: rgba(205, 241, 247, .15); overflow: hidden; }
+.quote-progress span { display: block; height: 100%; width: 0; background: #9cecff; box-shadow: 0 0 8px #9cecff; }
+.cursor-glow { position: fixed; z-index: 3; width: 42px; height: 42px; border: 1px solid rgba(140,236,255,.3); border-radius: 50%; pointer-events: none; transform: translate(-50%,-50%); opacity: 0; transition: opacity .25s; box-shadow: 0 0 24px rgba(83, 213, 255, .12), inset 0 0 15px rgba(83, 213, 255, .06); }
+body:hover .cursor-glow { opacity: 1; }
+@media (max-height: 600px) {
+  .brand { top: 4%; }
+  .clock-block { top: 27%; }
+  .quote-block { bottom: 5%; }
+  .date { margin-top: 8px; }
+  .weekday { margin-top: 10px; }
+  .quote-progress { margin-top: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }

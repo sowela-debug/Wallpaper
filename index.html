@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07121f">
+  <title>Nomad Sowpon | Live Desktop Wallpaper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <main class="wallpaper">
+    <header class="brand">
+      <div class="name">Nomad Sowpon</div>
+      <div class="brand-divider" aria-hidden="true">
+        <span></span><svg viewBox="0 0 48 28"><path d="M2 25 14 8l5 7 7-13 20 23H2Z"/><path d="m13 25 9-12 5 7 5-5 9 10"/></svg><span></span>
+      </div>
+    </header>
+
+    <section class="clock-block" aria-label="Current date and time">
+      <div id="clock" class="clock">00:00:00</div>
+      <div id="date" class="date">JANUARY 01, 2026</div>
+      <div id="weekday" class="weekday">THURSDAY</div>
+    </section>
+
+    <footer class="quote-block">
+      <p id="quote" class="quote">“Not all those who wander are lost.”</p>
+      <p id="quote-author" class="quote-author">— J. R. R. TOLKIEN —</p>
+      <div class="quote-progress" aria-hidden="true"><span id="quote-progress"></span></div>
+    </footer>
+  </main>
+
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <script src="script.js"></script>
+</body>
+</html>
